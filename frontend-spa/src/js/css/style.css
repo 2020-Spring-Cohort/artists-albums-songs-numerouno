@@ -1,0 +1,80 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* index.html */
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 7fr 1fr;
+}
+
+.title {
+    padding: 1rem;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+}
+
+.sidebar {
+    border: 1px solid red;
+    padding: 1rem;
+    display: grid;
+    line-height: 5rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+.sidebar a:hover {
+    color: maroon;
+}
+
+.slideshow {
+    border: 1px solid green;
+}
+
+.header {
+    border: 1px solid green;
+    display: grid;
+    place-items: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+}
+
+.footer {
+    border: 1px solid green;
+    display: grid;
+    place-items: center;
+}
+
+
+/*Artist.html*/
+.title {
+    text-align: center;
+}
+
+.main .artistsDisplay {
+    display: grid;
+}
+
+.artistsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.artist {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    place-items: center;
+}
