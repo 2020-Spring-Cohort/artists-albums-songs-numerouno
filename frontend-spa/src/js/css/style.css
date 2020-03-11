@@ -9,6 +9,7 @@
     display: grid;
     height: 100vh;
     grid-template-rows: 1fr 7fr 1fr;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .title {
@@ -21,7 +22,7 @@
 }
 
 .sidebar {
-    border: 1px solid red;
+
     padding: 1rem;
     display: grid;
     line-height: 5rem;
@@ -37,12 +38,10 @@
     color: maroon;
 }
 
-.slideshow {
-    border: 1px solid green;
-}
+.slideshow {}
 
 .header {
-    border: 1px solid green;
+
     display: grid;
     place-items: center;
 }
@@ -52,15 +51,29 @@
 }
 
 .footer {
-    border: 1px solid green;
+
     display: grid;
     place-items: center;
 }
 
 
 /*Artist.html*/
+
+
+.container__artists {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 7fr 1fr;
+    background-color: ;
+    padding: 1rem;
+}
+
 .title {
     text-align: center;
+}
+
+.title h3 {
+    font-size: 3rem;
 }
 
 .main .artistsDisplay {
@@ -69,12 +82,166 @@
 
 .artistsList {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
 
 }
 
 .artist {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 1fr 0.3fr 0.3fr;
     place-items: center;
+    border: 1px solid blue;
+    height: 5rem;
+    padding: 0.5rem 0;
+}
+
+.edit {
+    display: grid;
+    text-align: right;
+
+}
+
+.edit i:hover {
+    color: rgb(24, 241, 24);
+}
+
+.delete i:hover {
+    color: red;
+}
+
+.delete {
+    display: grid;
+    text-align: left;
+
+}
+
+
+.main__artists {
+    display: grid;
+}
+
+.artist__name a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+
+    height: 4rem;
+    padding: 1rem 2rem;
+    display: block;
+
+
+}
+
+.add {
+    margin-bottom: 1rem;
+    display: grid;
+    justify-content: right;
+    padding-right: 2rem;
+}
+
+.add i {
+    font-size: 3rem;
+    color: blue;
+}
+
+
+/*artist.html*/
+
+.container__artist {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 7fr 1fr;
+}
+
+.main__artist {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.artistContainer__infos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid green;
+}
+
+.artistContainer__infos .infos {
+    display: grid;
+    grid-gap: 0.5rem;
+    border: 1px solid green;
+}
+
+.artistContainer__infos .picture {
+    border-radius: 50%;
+    height: 60px;
+}
+
+.title h3 {
+    margin-top: 1rem;
+}
+
+.main__artist {
+
+    border: 1px solid red;
+}
+
+.artistContainer {
+    display: grid;
+    border: 1px solid blue;
+    height: 30rem;
+    grid-template-rows: 1fr 6fr 1fr;
+
+}
+
+.artistContainer__infos .albums {
+    display: grid;
+    grid-gap: 0.3rem;
+    place-items: center;
+    border: 1px solid blue;
+}
+
+.artistContainer__infos .albums h3 {
+    font-weight: bolder;
+    font-size: 3rem;
+
+}
+
+.artistContainer__infos .infos h3 {
+    font-weight: bolder;
+    font-size: 3rem;
+
+}
+
+.artistContainer__infos .infos {
+    padding-left: 1rem;
+}
+
+.infos h3 {
+    text-align: center;
+}
+
+.artistContainer__name {
+    display: grid;
+    place-items: center;
+}
+
+.artistContainer__name h2 {
+    font-weight: bolder;
+    font-size: 3rem;
+
+}
+
+.comments {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    height: 30rem;
+}
+
+.rating {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    height: 30rem;
 }
