@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 /* index.html */
@@ -244,4 +245,69 @@
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
     height: 30rem;
+}
+
+/* Album.html */
+
+.main__album {
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+.album__header {
+    border: 1px solid red;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+place-items: center;
+}
+.album__header__artistName {
+    font-size: xx-large;
+    margin-bottom: 2em;
+    margin-right: 10em;
+color: rgb(0, 0, 0);    
+}
+.album__information {
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+body {
+    height: 100vh;
+}
+.album__header__artistPic {
+border-radius: 50%;
+width: 200px;
+height: 200px;
+background-image: url(../images/rih.jpg);
+background-size: cover;
+border: 1px solid rgb(206, 0, 0);
+box-shadow: 0px 0px 3px 2px rgb(206, 0, 0);
+}
+.album__information__specs {
+    border: 1px solid black;
+line-height: 3em;
+padding-left: .5em ;
+}
+.album__information__specs h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.album__information__specs p {
+    font-size: 25px;
+    font-weight: bolder;
+}
+.album__information__specs p span {
+    font-size: 18px;
+    margin-left: 1em;
+}
+.album__information__songs {
+    border: 1px solid blue;
+}
+.album__information__songs__song {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgb(231, 145, 133);
+    margin: 1rem;
+    padding: .5rem;
+    box-shadow: 0px 0px 3px 2px rgb(231, 145, 133);
 }
