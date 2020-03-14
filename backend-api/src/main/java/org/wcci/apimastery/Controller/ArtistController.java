@@ -1,4 +1,4 @@
-package org.wcci.apimastery.ControllerTests;
+package org.wcci.apimastery.Controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
