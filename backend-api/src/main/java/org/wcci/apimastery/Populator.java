@@ -26,6 +26,8 @@ public class Populator implements CommandLineRunner {
 
       Album scorpion = new Album("Scorpion", "Ovo", drake);
       albumRepository.save(scorpion);
+      Album views = new Album("Views", "Ovo", drake);
+      albumRepository.save(views);
       Album anti = new Album("Anti", "Roc Nation", rhianna);
       albumRepository.save(anti);
       Album uprising = new Album("Uprising", "Beverly", bobMarley);
