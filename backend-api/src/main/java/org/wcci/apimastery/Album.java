@@ -11,6 +11,7 @@ public class Album {
     @GeneratedValue
     private Long id;
     private String title;
+    private String image;
 
     @JsonIgnore
     @OneToMany (mappedBy ="album")

@@ -1,5 +1,7 @@
 package org.wcci.apimastery;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,13 +17,13 @@ public class Artist {
     private Collection<Album> albums;
 
 
-
     @OneToMany(mappedBy = "artist")
     private Collection<Song> songs;
     private String name;
     private int age;
     private String hometown;
     private String recordLabel;
+    private String image;
 
     protected Artist() {}
     public Artist(String name, int age, String hometown, String recordLabel){
