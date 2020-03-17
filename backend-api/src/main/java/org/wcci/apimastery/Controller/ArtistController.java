@@ -30,5 +30,8 @@ public class ArtistController {
     public String displayArtistFromPostPage(@PathVariable long artistId){
         Artist retrievedArtist = artistStorage.findArtistById(artistId);
         return "retrievedArtist";
+
     }
+
+
 }
