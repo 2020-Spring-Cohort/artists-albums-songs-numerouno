@@ -12,25 +12,23 @@ import org.wcci.apimastery.ArtistStorage;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("artists")
 public class ArtistController {
     private ArtistStorage artistStorage;
 
     private ArtistRepository artistRepository;
 
-    public ArtistController(ArtistRepository artistRepository, ArtistStorage artistStorage) {
-        this.artistRepository = artistRepository;
-        this.artistStorage = artistStorage;
+    public ArtistController(ArtistRepository artistRepository) {
+        this. artistRepository = artistRepository;
     }
 
-    @GetMapping("")
+    @RequestMapping("/artists")
     public Collection<Artist> retrievedArtists() {
         return (Collection<Artist>) artistRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Artist displayArtistFromPostPage(@PathVariable long id) {
-        Artist retrievedArtist = artistStorage.findArtistById(id);
-        return retrievedArtist;
+    @GetMapping("/{artistId}")
+    public String displayArtistFromPostPage(@PathVariable long artistId){
+        Artist retrievedArtist = artistStorage.findArtistById(artistId);
+        return "retrievedArtist";
     }
 }
