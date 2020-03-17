@@ -32,4 +32,12 @@ public class ArtistStorageJpaImpl implements ArtistStorage {
     public Artist findArtistById(long id) {
         return artistRepository.findById(id).get();
     }
+
+    @Override
+    public Artist add(Artist artist) {
+        artistRepository.save(artist);
+
+        return artist;
+    }
+
 }

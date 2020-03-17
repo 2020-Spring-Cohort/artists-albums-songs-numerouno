@@ -33,6 +33,10 @@ public class Artist {
         this.recordLabel = recordLabel;
     }
 
+//    public Artist(String artistName) {
+//
+//    }
+
     public Long getId() {
         return id;
     }

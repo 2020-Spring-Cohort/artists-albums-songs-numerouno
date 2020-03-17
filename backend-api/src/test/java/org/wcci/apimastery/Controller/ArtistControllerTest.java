@@ -26,7 +26,11 @@ public class ArtistControllerTest {
     @BeforeEach
     void setUp(){
         artistRepository = mock(ArtistRepository.class);
+
         underTest = new ArtistController(artistRepository,artistStorage);
+
+        underTest = new ArtistController(artistRepository, artistStorage);
+
         testArtist = new Artist("test",20,"test","test");
         when(artistRepository.findAll()).thenReturn(Collections.singletonList(testArtist));
     }

@@ -7,5 +7,7 @@ public interface ArtistStorage {
     void store(Artist artist);
     Artist findArtistByName(String name);
     Artist findArtistById(long artistId);
+
+    Artist add(Artist artist);
 }
 
