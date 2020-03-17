@@ -8,5 +8,7 @@ public interface ArtistStorage {
     Artist findArtistByName(String name);
 
     Artist findArtistById(long id);
+
+    Artist add(Artist artist);
 }
 
