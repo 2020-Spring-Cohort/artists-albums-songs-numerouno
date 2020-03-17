@@ -1,7 +1,6 @@
 package org.wcci.apimastery.Controller;
 
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,24 +12,25 @@ import org.wcci.apimastery.ArtistStorage;
 import java.util.Collection;
 
 @RestController
+@RequestMapping("artists")
 public class ArtistController {
     private ArtistStorage artistStorage;
 
     private ArtistRepository artistRepository;
 
-    public ArtistController(ArtistRepository artistRepository) {
-        this. artistRepository = artistRepository;
+    public ArtistController(ArtistRepository artistRepository, ArtistStorage artistStorage) {
+        this.artistRepository = artistRepository;
+        this.artistStorage = artistStorage;
     }
 
-    @RequestMapping("/artists")
+    @GetMapping("")
     public Collection<Artist> retrievedArtists() {
         return (Collection<Artist>) artistRepository.findAll();
     }
 
-    @GetMapping("/{artistId}")
-    public String displayArtistFromPostPage(@PathVariable long artistId, Model model){
-        Artist retrievedArtist = artistStorage.findArtistById(artistId);
-        model.addAttribute("artist", retrievedArtist);
-        return "artist";
+    @GetMapping("/{id}")
+    public Artist displayArtistFromPostPage(@PathVariable long id) {
+        Artist retrievedArtist = artistStorage.findArtistById(id);
+        return retrievedArtist;
     }
 }
