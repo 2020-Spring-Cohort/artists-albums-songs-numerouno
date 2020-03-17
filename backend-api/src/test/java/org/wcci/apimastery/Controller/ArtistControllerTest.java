@@ -6,6 +6,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.wcci.apimastery.Artist;
 import org.wcci.apimastery.ArtistRepository;
+import org.wcci.apimastery.ArtistStorage;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -18,13 +19,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ArtistControllerTest {
 
     private ArtistRepository artistRepository;
+    private ArtistStorage artistStorage;
     private ArtistController underTest;
     private Artist testArtist;
 
     @BeforeEach
     void setUp(){
         artistRepository = mock(ArtistRepository.class);
-        underTest = new ArtistController(artistRepository);
+        underTest = new ArtistController(artistRepository,artistStorage);
         testArtist = new Artist("test",20,"test","test");
         when(artistRepository.findAll()).thenReturn(Collections.singletonList(testArtist));
     }
