@@ -54,7 +54,7 @@ public class AlbumController {
 //    public Album createAlbum(@RequestBody Album albumToAdd ) {
 //        return albumRepository.save(albumToAdd);
 //    }
-    @PostMapping("/albums/")
+    @PostMapping("/albums")
     public Album creatAlbum(@RequestBody Album albumToAdd) {
         return albumRepository.save(albumToAdd);
     }
