@@ -25,10 +25,12 @@
     grid-template-rows: 4rem auto;
     align-items: start;
 }
+
 .artist__title {
     text-align: center;
     padding: 1rem;
 }
+
 .single-artist i,
 .single-artist a {
     cursor: pointer;
@@ -71,9 +73,29 @@
     display: grid;
     grid-template-rows: 4rem auto;
 }
+
 .songs__title {
     text-align: center;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
 }
+
+.songs__title a {
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgb(233, 123, 123);
+
+    line-height: 4rem;
+    color: #000;
+    transition: all 300ms ease-in;
+}
+
+.songs__title a:hover {
+    background-color: rgb(233, 123, 123);
+    color: #fff;
+}
+
 .songs__list__single {
     display: grid;
     grid-template-columns: 1fr 6fr 1fr .5fr .5fr;
@@ -85,16 +107,19 @@
     display: block;
     margin-right: 0.3rem;
 }
+
 .songs__list__song {
-margin-right: 1rem;
+    margin-right: 1rem;
 }
 
 .songs__list__song a {
     text-decoration: none;
 }
+
 .songs__list__single span {
     margin-right: 1rem;
 }
+
 .songs__list__single .fedit:hover {
     color: green;
 }
@@ -102,14 +127,17 @@ margin-right: 1rem;
 .songs__list__single .fdelete:hover {
     color: red;
 }
+
 .songs__list__single i {
     cursor: pointer;
 }
+
 .artist {
 
     display: grid;
-    grid-template-rows: .7fr .7fr 3fr;
+    grid-template-rows: 0.7fr 0.3fr .7fr 3fr;
 }
+
 .artist__picture {
     background-image: url(../images/rih.jpg);
     background-repeat: no-repeat;
@@ -117,21 +145,25 @@ margin-right: 1rem;
     height: 10em;
     width: 20em;
 }
+
 .artists__infos {
     margin-top: 2em;
     padding: 1.3em;
     color: rgb(190, 76, 76);
     line-height: 2em;
 }
+
 .artists__infos span {
     margin-left: .5em;
     color: black;
 }
+
 .artists__albums {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 1.3em;
 }
+
 .artists__albums__album {
     display: grid;
     grid-template-rows: 4fr 1fr;
@@ -140,14 +172,109 @@ margin-right: 1rem;
     border: 1px solid black;
     cursor: pointer;
 }
+
 .artists__albums__album__pic {
     background-image: url(../images/rhi2.jpg);
     background-size: cover;
 }
+
 .artists__albums__album__title {
     text-align: center;
     padding: .5rem;
 }
+
+
+
+
+
+
+
+/*song Form*/
+.song-form {
+    display: grid;
+    grid-gap: 1rem;
+    border: 1px solid aqua;
+    padding: 0.5rem;
+    width: 25rem;
+    position: absolute;
+    top: 25rem;
+    transform: translateX(-400px);
+    transition: all 500ms ease-in-out;
+    background-color: rgb(190, 76, 76);
+
+}
+
+.album-form {
+    display: grid;
+    grid-gap: 1rem;
+    border: 1px solid aqua;
+    padding: 0.5rem;
+    width: 25rem;
+    position: absolute;
+    top: 25rem;
+    left: 0rem;
+    transform: translateX(1700px);
+    transition: all 500ms ease-in-out;
+    background-color: rgb(190, 76, 76);
+
+}
+
+.record-label input,
+.album-picture input {
+    height: 2.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.album-picture input {
+    height: 3rem;
+}
+
+.title input,
+.duration input,
+.submit input {
+    height: 2.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.submit input {
+    padding: 1rem;
+    line-height: 5rem;
+    height: 4rem;
+    width: 7rem;
+
+}
+
+.cancel button {
+
+    font-size: 2rem;
+    padding: 1rem;
+    line-height: 1rem;
+    height: 4rem;
+    width: 7rem;
+}
+
+.add-album {
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgb(233, 123, 123);
+    width: 10rem;
+    padding: 1rem;
+    height: 4rem;
+    color: #000;
+    transition: all 300ms ease-in;
+    margin-left: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.add-album:hover {
+    background-color: rgb(233, 123, 123);
+    color: #fff;
+}
+
 /* .songs__list__single .fdelete {
     padding: 0.5p;
 } */
