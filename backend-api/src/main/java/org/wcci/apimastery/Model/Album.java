@@ -1,4 +1,4 @@
-package org.wcci.apimastery;
+package org.wcci.apimastery.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

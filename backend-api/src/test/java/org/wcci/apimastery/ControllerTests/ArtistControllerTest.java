@@ -1,12 +1,12 @@
-package org.wcci.apimastery.Controller;
+package org.wcci.apimastery.ControllerTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.wcci.apimastery.Artist;
-import org.wcci.apimastery.ArtistRepository;
-import org.wcci.apimastery.ArtistStorage;
+import org.wcci.apimastery.Model.Artist;
+import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
+import org.wcci.apimastery.Storages.ArtistStorage;
 
 import java.util.Collection;
 import java.util.Collections;

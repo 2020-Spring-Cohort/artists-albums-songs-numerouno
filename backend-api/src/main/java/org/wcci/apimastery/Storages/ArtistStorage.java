@@ -1,4 +1,6 @@
-package org.wcci.apimastery;
+package org.wcci.apimastery.Storages;
+
+import org.wcci.apimastery.Model.Artist;
 
 import java.util.Collection;
 

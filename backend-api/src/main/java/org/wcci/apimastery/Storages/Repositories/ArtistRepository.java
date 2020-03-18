@@ -1,6 +1,7 @@
-package org.wcci.apimastery;
+package org.wcci.apimastery.Storages.Repositories;
 
 import org.springframework.data.repository.CrudRepository;
+import org.wcci.apimastery.Model.Artist;
 
 import java.util.Optional;
 

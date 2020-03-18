@@ -1,6 +1,4 @@
-package org.wcci.apimastery;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package org.wcci.apimastery.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,9 +31,6 @@ public class Artist {
         this.recordLabel = recordLabel;
     }
 
-//    public Artist(String artistName) {
-//
-//    }
 
     public Long getId() {
         return id;
