@@ -1,13 +1,14 @@
-package org.wcci.apimastery.Controller;
+package org.wcci.apimastery.ControllerTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.wcci.apimastery.Album;
-import org.wcci.apimastery.Artist;
-import org.wcci.apimastery.Song;
-import org.wcci.apimastery.SongRepository;
+import org.wcci.apimastery.Model.Album;
+import org.wcci.apimastery.Model.Artist;
+import org.wcci.apimastery.Model.Song;
+import org.wcci.apimastery.Storages.Repositories.SongRepository;
+import org.wcci.apimastery.Storages.SongStorage;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -16,19 +17,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 public class SongControllerTest {
 
     private SongRepository songRepository;
+    private SongStorage songStorage;
     private SongController underTest;
     private Song testSong;
 
     @BeforeEach
     void setUp() {
         songRepository = mock(SongRepository.class);
-        underTest = new SongController(songRepository);
+        underTest = new SongController(songRepository,songStorage);
         Artist testArtist = new Artist("test",20,"test","test");
         Album testAlbum = new Album("test","test",testArtist);
         testSong = new Song ("Test", "Test", testArtist, testAlbum);

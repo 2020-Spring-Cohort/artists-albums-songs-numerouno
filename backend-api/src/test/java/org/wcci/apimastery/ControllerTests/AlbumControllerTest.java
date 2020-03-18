@@ -1,12 +1,13 @@
-package org.wcci.apimastery.Controller;
+package org.wcci.apimastery.ControllerTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.wcci.apimastery.Album;
-import org.wcci.apimastery.AlbumRepository;
-import org.wcci.apimastery.Artist;
+import org.wcci.apimastery.Model.Album;
+import org.wcci.apimastery.Storages.AlbumStorage;
+import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
+import org.wcci.apimastery.Model.Artist;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -20,13 +21,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class AlbumControllerTest {
 
     private AlbumRepository albumRepository;
+    private AlbumStorage albumStorage;
     private AlbumController underTest;
     private Album testAlbum;
 
     @BeforeEach
     void setUp(){
         albumRepository = mock(AlbumRepository.class);
-        underTest = new AlbumController(albumRepository);
+        underTest = new AlbumController(albumRepository,albumStorage);
         Artist testArtist = new Artist("Test", 20, "test", "test");
         testAlbum = new Album("Test", "Test", testArtist);
         when(albumRepository.findAll()).thenReturn(Collections.singletonList(testAlbum));

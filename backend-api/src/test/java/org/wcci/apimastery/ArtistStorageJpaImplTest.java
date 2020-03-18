@@ -1,6 +1,10 @@
 package org.wcci.apimastery;
 
 import org.junit.jupiter.api.Test;
+import org.wcci.apimastery.Model.Artist;
+import org.wcci.apimastery.Storages.ArtistStorage;
+import org.wcci.apimastery.Storages.ArtistStorageJpaImpl;
+import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
 
 import java.util.Collections;
 import java.util.Optional;
