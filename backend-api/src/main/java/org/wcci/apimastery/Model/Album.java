@@ -34,6 +34,10 @@ public class Album {
         return title;
     }
 
+    public Collection<Song> getSongs() {
+        return songs;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,6 +63,7 @@ public class Album {
     public String getRecordLabel() {
         return recordLabel;
     }
+
 
 
 }
