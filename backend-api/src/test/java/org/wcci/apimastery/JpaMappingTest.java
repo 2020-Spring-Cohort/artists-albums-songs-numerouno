@@ -32,8 +32,8 @@ public class JpaMappingTest {
         artistRepo.save(testArtist);
 
 
-        Album testAlbum = new Album("test", "test", testArtist);
-        Album testAlbum2 = new Album("test2", "test2",testArtist);
+        Album testAlbum = new Album("test", "test","imgUrl", testArtist);
+        Album testAlbum2 = new Album("test2", "test2","imgUrl",testArtist);
         albumRepo.save(testAlbum);
         albumRepo.save(testAlbum2);
 
@@ -50,7 +50,7 @@ public class JpaMappingTest {
         Artist testArtist = new Artist("Drake", 21, "Houston", "Ovo");
         artistRepo.save(testArtist);
 
-        Album testAlbum = new Album("test","test",testArtist);
+        Album testAlbum = new Album("test","test","imgUrl",testArtist);
         albumRepo.save(testAlbum);
 
         Song testSong = new Song("title", "4min",testArtist,testAlbum);

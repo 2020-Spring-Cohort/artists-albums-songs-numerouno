@@ -11,20 +11,23 @@ public class Album {
     @GeneratedValue
     private Long id;
     private String title;
-    private String image;
+   private String image;
 
-    @JsonIgnore
+
+    //@JsonIgnore
     @OneToMany (mappedBy ="album")
     private Collection<Song> songs;
     private String recordLabel;
+    @JsonIgnore
     @ManyToOne
     private Artist artist;
     protected Album() {}
 
-    public Album(String title, String recordLabel, Artist artist) {
+    public Album(String title, String recordLabel, String image, Artist artist) {
         this.title = title;
         this.recordLabel = recordLabel;
-        this.artist = artist;
+        this.image = image;
+        this.artist =artist;
     }
     public Long getId() {
         return id;
@@ -36,6 +39,17 @@ public class Album {
 
     public Collection<Song> getSongs() {
         return songs;
+    }
+    public String getImage() {
+        return image;
+    }
+
+    public String getRecordLabel() {
+        return recordLabel;
+    }
+
+    public Artist getArtist() {
+        return artist;
     }
 
     @Override
@@ -60,9 +74,7 @@ public class Album {
         return result;
     }
 
-    public String getRecordLabel() {
-        return recordLabel;
-    }
+
 
 
 
