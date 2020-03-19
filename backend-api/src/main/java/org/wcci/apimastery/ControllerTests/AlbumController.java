@@ -63,7 +63,7 @@ public class AlbumController {
     @PatchMapping("/albums/{id}/songs")
     public Album updateAlbum(@RequestBody Song requestBodySong, @PathVariable Long id) {
        Album albumToUpdate = albumRepository.findById(id).get();
-       Song songToAdd = new Song(requestBodySong.getTitle(),requestBodySong.getDuration(),requestBodySong.getArtist(),requestBodySong.getAlbum());
+       Song songToAdd = new Song(requestBodySong.getTitle(),requestBodySong.getDuration());
     songRepository.save(songToAdd);
     return albumRepository.save(albumToUpdate);
 
