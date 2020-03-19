@@ -49,8 +49,9 @@ public class Song {
         return album;
     }
 
-
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {

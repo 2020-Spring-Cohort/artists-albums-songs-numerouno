@@ -13,7 +13,7 @@ import javax.tools.FileObject;
 import java.util.Collection;
 
 @RestController
-
+@RequestMapping("albums")
 public class AlbumController {
 
 
@@ -29,43 +29,41 @@ public class AlbumController {
 
     }
 
-    @GetMapping("/albums/")
+    @GetMapping("")
     public Collection<Album> retrieveAlbums() {
         return (Collection<Album>) albumRepository.findAll();
     }
 
-    @GetMapping("/albums/{id}/")
+    @GetMapping("/{id}")
     public Album displaySingleAlbum(@PathVariable long id) {
         return albumRepository.findById(id).get();
 
     }
 
-    @DeleteMapping("/albums/{id}/")
+    @DeleteMapping("/{id}")
     public void deleteAlbum(@PathVariable long id) {
-       Album albumToDelete = albumRepository.findById(id).get();
+        Album albumToDelete = albumRepository.findById(id).get();
 
-       for(Song songToDelete: albumToDelete.getSongs()){
-           songRepository.delete(songToDelete);
-       }
+        for (Song songToDelete : albumToDelete.getSongs()) {
+            songRepository.delete(songToDelete);
+        }
 
         albumRepository.delete(albumToDelete);
 
-
     }
 
-
-    @PostMapping("/albums/")
+    @PostMapping("")
     public Album creatAlbum(@RequestBody Album albumToAdd) {
         return albumRepository.save(albumToAdd);
     }
 
 
-    @PatchMapping("/albums/{id}/songs")
+    @PatchMapping("/{id}/songs")
     public Album updateAlbum(@RequestBody Song requestBodySong, @PathVariable Long id) {
-       Album albumToUpdate = albumRepository.findById(id).get();
-       Song songToAdd = new Song(requestBodySong.getTitle(),requestBodySong.getDuration());
-    songRepository.save(songToAdd);
-    return albumRepository.save(albumToUpdate);
+        Album albumToUpdate = albumRepository.findById(id).get();
+        Song songToAdd = new Song(requestBodySong.getTitle(), requestBodySong.getDuration());
+        songRepository.save(songToAdd);
+        return albumRepository.save(albumToUpdate);
 
     }
 

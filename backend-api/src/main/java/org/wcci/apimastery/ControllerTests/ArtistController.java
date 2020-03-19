@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.*;
+import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Artist;
+import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
-import org.wcci.apimastery.Storages.ArtistStorage;
+
 
 import java.util.Collection;
 
@@ -17,13 +19,13 @@ import java.util.Collection;
 public class ArtistController {
 
 
-    private ArtistStorage artistStorage;
+   private AlbumRepository albumRepository;
 
     private ArtistRepository artistRepository;
 
-    public ArtistController(ArtistRepository artistRepository, ArtistStorage artistStorage) {
+    public ArtistController(ArtistRepository artistRepository, AlbumRepository albumRepository) {
         this.artistRepository = artistRepository;
-        this.artistStorage = artistStorage;
+        this.albumRepository = albumRepository;
     }
 
     @GetMapping("")
@@ -33,16 +35,38 @@ public class ArtistController {
 
     @GetMapping("/{id}")
     public Artist displaySingleArtist(@PathVariable long id) {
-        Artist retrievedArtist = artistStorage.findArtistById(id);
-        return retrievedArtist;
+        return artistRepository.findById(id).get();
 
     }
 
-    @PostMapping("add")
-    public Artist AddArtist(@RequestParam String name, int age, String hometown, String recordLabel) {
-        Artist addArtist = artistStorage.add(new Artist(name, age, hometown, recordLabel));
-        return addArtist;
+    @DeleteMapping("/{id}")
+    public void deleteArtist(@PathVariable Long id) {
+        Artist artistToRemove = artistRepository.findById(id).get();
+
+        for (Album albumToRemove : artistToRemove.getAlbums()) {
+            albumRepository.delete(albumToRemove);
+        }
+        artistRepository.deleteById(id);
     }
+
+    @PostMapping("")
+    public Artist createArtist(@RequestBody Artist artistToAdd) {
+        return artistRepository.save(artistToAdd);
+    }
+
+    @PatchMapping("/{id}/albums")
+    public Artist updateArtistAlbums(@PathVariable Long id, @RequestBody Album requestBodyAlbum) {
+        Artist artistToPatch = artistRepository.findById(id).get();
+       Album albumToAdd = new Album(requestBodyAlbum.getTitle(), requestBodyAlbum.getRecordLabel(), requestBodyAlbum.getImage(),artistToPatch);
+        albumRepository.save(albumToAdd);
+        return artistRepository.save(artistToPatch);
+    }
+
+//    @PutMapping("/{id}")
+//    public Artist editArtist(@PathVariable Long id,@RequestBody Artist requestBodyArtist) {
+//        requestBodyArtist = artistRepository.findById(id).get();
+//        return artistRepository.save(requestBodyArtist);
+//    }
 
 }
 
