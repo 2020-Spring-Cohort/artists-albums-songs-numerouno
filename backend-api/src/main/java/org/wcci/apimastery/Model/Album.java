@@ -14,20 +14,22 @@ public class Album {
    private String image;
 
 
-    //@JsonIgnore
+    @JsonIgnore
     @OneToMany (mappedBy ="album")
     private Collection<Song> songs;
     private String recordLabel;
-    @JsonIgnore
     @ManyToOne
     private Artist artist;
+
+
     protected Album() {}
 
-    public Album(String title, String recordLabel, String image, Artist artist) {
+    public Album(String title, String recordLabel, String image,Artist artist) {
         this.title = title;
         this.recordLabel = recordLabel;
         this.image = image;
-        this.artist =artist;
+        this.artist = artist;
+
     }
     public Long getId() {
         return id;
@@ -61,21 +63,27 @@ public class Album {
 
         if (id != null ? !id.equals(album.id) : album.id != null) return false;
         if (title != null ? !title.equals(album.title) : album.title != null) return false;
-        if (recordLabel != null ? !recordLabel.equals(album.recordLabel) : album.recordLabel != null) return false;
-        return artist != null ? artist.equals(album.artist) : album.artist == null;
+        if (image != null ? !image.equals(album.image) : album.image != null) return false;
+        return recordLabel != null ? recordLabel.equals(album.recordLabel) : album.recordLabel == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (recordLabel != null ? recordLabel.hashCode() : 0);
-        result = 31 * result + (artist != null ? artist.hashCode() : 0);
         return result;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
+                ", recordLabel='" + recordLabel + '\'' +
+                ", artist=" + artist +
+                '}';
+    }
 }

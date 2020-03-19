@@ -41,13 +41,13 @@ public class Populator implements CommandLineRunner {
       Album mapOftheSoul7 = new Album("Map of the Soul:7", "Big Hit", "url",bts);
       albumRepository.save(mapOftheSoul7);
 
-      Song nonStop = new Song("Nonstop", "3:58", drake, scorpion);
+      Song nonStop = new Song("Nonstop", "3:58");
       songRepository.save(nonStop);
-      Song work = new Song("Work", "3:39", rhianna, anti);
+      Song work = new Song("Work", "3:39");
       songRepository.save(work);
-      Song badCard = new Song("Bad Card", "2:47", bobMarley, uprising);
+      Song badCard = new Song("Bad Card", "2:47");
       songRepository.save(badCard);
-      Song on = new Song("on", "4:07", bts, mapOftheSoul7);
+      Song on = new Song("on", "4:07");
       songRepository.save(on);
     }
 }

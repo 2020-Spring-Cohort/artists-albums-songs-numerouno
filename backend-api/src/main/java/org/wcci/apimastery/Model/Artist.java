@@ -11,17 +11,13 @@ public class Artist {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy = "artist")
-    private Collection<Album> albums;
-
-
-    @OneToMany(mappedBy = "artist")
-    private Collection<Song> songs;
     private String name;
     private int age;
     private String hometown;
     private String recordLabel;
     private String image;
+    @OneToMany(mappedBy = "artist")
+    private Collection<Album> albums;
 
     protected Artist() {}
     public Artist(String name, int age, String hometown, String recordLabel){
@@ -51,6 +47,11 @@ public class Artist {
     public String getRecordLabel() {
         return recordLabel;
     }
+
+    public Collection<Album> getAlbums() {
+        return albums;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,11 +76,7 @@ public class Artist {
         return result;
     }
 
-    public Collection<Album> getAlbums() {
-        return albums;
-    }
 
-    public Collection<Song> getSongs() {
-        return songs;
-    }
+
+
 }

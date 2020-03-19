@@ -17,23 +17,19 @@ public class Song {
     @Id
     @GeneratedValue
     private Long id;
-
     @JsonIgnore
     @ManyToOne
     private Album album;
-    @ManyToOne
-    private Artist artist;
+
 
 
 
     protected Song() {
     }
 
-    public Song(String title, String duration, Artist artist, Album album){
+    public Song(String title, String duration){
         this.title = title;
         this.duration = duration;
-        this.artist=artist;
-        this.album = album;
 
     }
 
@@ -53,9 +49,8 @@ public class Song {
         return album;
     }
 
-    public Artist getArtist() {
-        return artist;
-    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -67,8 +62,7 @@ public class Song {
         if (title != null ? !title.equals(song.title) : song.title != null) return false;
         if (duration != null ? !duration.equals(song.duration) : song.duration != null) return false;
         if (id != null ? !id.equals(song.id) : song.id != null) return false;
-        if (album != null ? !album.equals(song.album) : song.album != null) return false;
-        return artist != null ? artist.equals(song.artist) : song.artist == null;
+        return album != null ? album.equals(song.album) : song.album == null;
     }
 
     @Override
@@ -77,7 +71,6 @@ public class Song {
         result = 31 * result + (duration != null ? duration.hashCode() : 0);
         result = 31 * result + (id != null ? id.hashCode() : 0);
         result = 31 * result + (album != null ? album.hashCode() : 0);
-        result = 31 * result + (artist != null ? artist.hashCode() : 0);
         return result;
     }
 }

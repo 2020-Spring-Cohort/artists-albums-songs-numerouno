@@ -32,7 +32,7 @@ public class SongControllerTest {
         underTest = new SongController(songRepository,songStorage);
         Artist testArtist = new Artist("test",20,"test","test");
         Album testAlbum = new Album("test","test","imgUrl",testArtist);
-        testSong = new Song ("Test", "Test", testArtist, testAlbum);
+        testSong = new Song ("Test", "Test");
         when(songRepository.findAll()).thenReturn(Collections.singletonList(testSong));
     }
     @Test
