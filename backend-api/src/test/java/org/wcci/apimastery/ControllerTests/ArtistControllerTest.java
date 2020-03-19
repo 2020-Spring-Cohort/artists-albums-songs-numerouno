@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.wcci.apimastery.Model.Artist;
+import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
 import org.wcci.apimastery.Storages.ArtistStorage;
 
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ArtistControllerTest {
 
     private ArtistRepository artistRepository;
-    private ArtistStorage artistStorage;
+    private AlbumRepository albumRepository;
     private ArtistController underTest;
     private Artist testArtist;
 
@@ -27,9 +28,10 @@ public class ArtistControllerTest {
     void setUp(){
         artistRepository = mock(ArtistRepository.class);
 
-        underTest = new ArtistController(artistRepository,artistStorage);
 
-        underTest = new ArtistController(artistRepository, artistStorage);
+        underTest = new ArtistController(artistRepository,albumRepository);
+
+        underTest = new ArtistController(artistRepository, albumRepository);
 
         testArtist = new Artist("test",20,"test","test");
         when(artistRepository.findAll()).thenReturn(Collections.singletonList(testArtist));

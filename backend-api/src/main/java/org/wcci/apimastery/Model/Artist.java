@@ -13,17 +13,17 @@ public class Artist {
     private Long id;
     private String name;
     private int age;
-    private String hometown;
+    private String homeTown;
     private String recordLabel;
     private String image;
     @OneToMany(mappedBy = "artist")
     private Collection<Album> albums;
 
     protected Artist() {}
-    public Artist(String name, int age, String hometown, String recordLabel){
+    public Artist(String name, int age, String homeTown, String recordLabel){
         this.name = name;
         this.age = age;
-        this.hometown = hometown;
+        this.homeTown = homeTown;
         this.recordLabel = recordLabel;
     }
 
@@ -40,8 +40,8 @@ public class Artist {
         return age;
     }
 
-    public String getHometown() {
-        return hometown;
+    public String getHomeTown() {
+        return homeTown;
     }
 
     public String getRecordLabel() {
@@ -62,7 +62,7 @@ public class Artist {
         if (age != artist.age) return false;
         if (id != null ? !id.equals(artist.id) : artist.id != null) return false;
         if (name != null ? !name.equals(artist.name) : artist.name != null) return false;
-        if (hometown != null ? !hometown.equals(artist.hometown) : artist.hometown != null) return false;
+        if (homeTown != null ? !homeTown.equals(artist.homeTown) : artist.homeTown != null) return false;
         return recordLabel != null ? recordLabel.equals(artist.recordLabel) : artist.recordLabel == null;
     }
 
@@ -71,7 +71,7 @@ public class Artist {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + age;
-        result = 31 * result + (hometown != null ? hometown.hashCode() : 0);
+        result = 31 * result + (homeTown != null ? homeTown.hashCode() : 0);
         result = 31 * result + (recordLabel != null ? recordLabel.hashCode() : 0);
         return result;
     }

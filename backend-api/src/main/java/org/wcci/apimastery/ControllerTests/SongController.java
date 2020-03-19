@@ -2,6 +2,7 @@ package org.wcci.apimastery.ControllerTests;
 
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Model.Song;
+import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.SongRepository;
 import org.wcci.apimastery.Storages.SongStorage;
 
@@ -12,14 +13,15 @@ import java.util.Collection;
 public class SongController {
 
     private SongRepository songRepository;
-    private SongStorage songStorage;
+    private AlbumRepository albumRepository;
 
-    public SongController(SongRepository songRepository,SongStorage songStorage) {
+    public SongController(SongRepository songRepository, AlbumRepository albumRepository) {
         this.songRepository = songRepository;
-        this.songStorage = songStorage;
+        this.albumRepository = albumRepository;
 
     }
-    @RequestMapping ("")
+
+    @RequestMapping("")
     public Collection<Song> retrieveSongs() {
 
         return (Collection<Song>) songRepository.findAll();
@@ -27,18 +29,28 @@ public class SongController {
 
     @GetMapping("/{id}")
     public Song displaySingleSong(@PathVariable long id) {
-        Song retrievedSong = songStorage.findSongById(id);
-        return retrievedSong;
+        return songRepository.findById(id).get();
     }
 
-        @DeleteMapping("/{id}")
-        public void deleteSongs(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public void deleteSongs(@PathVariable Long id) {
         songRepository.deleteById(id);
 
-
     }
 
+    @PostMapping("")
+    public Song createSong(@RequestBody Song songToAdd) {
+        return songRepository.save(songToAdd);
+    }
 
+    @PatchMapping("/{id}")
+    public Song updateManufacturerProducts(@PathVariable Long id, @RequestBody Song requestBodySong) {
+        requestBodySong.setId(id);
+        return songRepository.save(requestBodySong);
+    }
 
 
 }
+
+
+
