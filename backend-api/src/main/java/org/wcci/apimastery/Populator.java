@@ -30,15 +30,15 @@ public class Populator implements CommandLineRunner {
       Artist bts = new Artist("Bantan Sonyeonban", 24, "Korea", "Big Hit");
       artistRepository.save(bts);
 
-      Album scorpion = new Album("Scorpion", "Ovo", drake);
+      Album scorpion = new Album("Scorpion", "Ovo", "url",drake);
       albumRepository.save(scorpion);
-      Album views = new Album("Views", "Ovo", drake);
+      Album views = new Album("Views", "Ovo", "url",drake);
       albumRepository.save(views);
-      Album anti = new Album("Anti", "Roc Nation", rhianna);
+      Album anti = new Album("Anti", "Roc Nation", "url",rhianna);
       albumRepository.save(anti);
-      Album uprising = new Album("Uprising", "Beverly", bobMarley);
+      Album uprising = new Album("Uprising", "Beverly", "url",bobMarley);
       albumRepository.save(uprising);
-      Album mapOftheSoul7 = new Album("Map of the Soul:7", "Big Hit", bts);
+      Album mapOftheSoul7 = new Album("Map of the Soul:7", "Big Hit", "url",bts);
       albumRepository.save(mapOftheSoul7);
 
       Song nonStop = new Song("Nonstop", "3:58", drake, scorpion);

@@ -32,8 +32,9 @@ public class Song {
     public Song(String title, String duration, Artist artist, Album album){
         this.title = title;
         this.duration = duration;
-        this.artist = artist;
+        this.artist=artist;
         this.album = album;
+
     }
 
     public String getTitle() {
@@ -51,6 +52,11 @@ public class Song {
     public Album getAlbum() {
         return album;
     }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -6,6 +6,7 @@ import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.Storages.AlbumStorage;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
+import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
 import org.wcci.apimastery.Storages.Repositories.SongRepository;
 
 import javax.tools.FileObject;
@@ -15,47 +16,57 @@ import java.util.Collection;
 
 public class AlbumController {
 
-    private AlbumStorage albumStorage;
+
     private AlbumRepository albumRepository;
-    @Autowired
+
     private SongRepository songRepository;
 
 
-    public AlbumController(AlbumRepository albumRepository, AlbumStorage albumStorage) {
+    public AlbumController(AlbumRepository albumRepository, SongRepository songRepository) {
 
         this.albumRepository = albumRepository;
-        this.albumStorage = albumStorage;
+        this.songRepository = songRepository;
+
     }
 
     @GetMapping("/albums/")
     public Collection<Album> retrieveAlbums() {
-
         return (Collection<Album>) albumRepository.findAll();
     }
 
     @GetMapping("/albums/{id}/")
     public Album displaySingleAlbum(@PathVariable long id) {
-        Album retrievedAlbum = albumStorage.findAlbumById(id);
-        return retrievedAlbum;
+        return albumRepository.findById(id).get();
 
     }
 
     @DeleteMapping("/albums/{id}/")
     public void deleteAlbum(@PathVariable long id) {
-        Album albumToRemove = albumRepository.findById(id).get();
+       Album albumToDelete = albumRepository.findById(id).get();
 
-        for (Song songToRemove : albumToRemove.getSongs()) {
-            songRepository.delete(songToRemove);
-        }
-        albumRepository.deleteById(id);
+       for(Song songToDelete: albumToDelete.getSongs()){
+           songRepository.delete(songToDelete);
+       }
+
+        albumRepository.delete(albumToDelete);
+
+
     }
 
-    //    @PostMapping("")
-//    public Album createAlbum(@RequestBody Album albumToAdd ) {
-//        return albumRepository.save(albumToAdd);
-//    }
-    @PostMapping("/albums")
+
+    @PostMapping("/albums/")
     public Album creatAlbum(@RequestBody Album albumToAdd) {
         return albumRepository.save(albumToAdd);
     }
+
+
+    @PatchMapping("/albums/{id}/songs")
+    public Album updateAlbum(@RequestBody Song requestBodySong, @PathVariable Long id) {
+       Album albumToUpdate = albumRepository.findById(id).get();
+       Song songToAdd = new Song(requestBodySong.getTitle(),requestBodySong.getDuration(),requestBodySong.getArtist(),requestBodySong.getAlbum());
+    songRepository.save(songToAdd);
+    return albumRepository.save(albumToUpdate);
+
+    }
+
 }

@@ -31,7 +31,7 @@ public class SongControllerTest {
         songRepository = mock(SongRepository.class);
         underTest = new SongController(songRepository,songStorage);
         Artist testArtist = new Artist("test",20,"test","test");
-        Album testAlbum = new Album("test","test",testArtist);
+        Album testAlbum = new Album("test","test","imgUrl",testArtist);
         testSong = new Song ("Test", "Test", testArtist, testAlbum);
         when(songRepository.findAll()).thenReturn(Collections.singletonList(testSong));
     }
