@@ -27,9 +27,10 @@ public class Song {
     protected Song() {
     }
 
-    public Song(String title, String duration){
+    public Song(String title, String duration, Album album){
         this.title = title;
         this.duration = duration;
+        this.album = album;
 
     }
 

@@ -44,7 +44,7 @@ public class SongController {
     }
 
     @PatchMapping("/{id}")
-    public Song updateManufacturerProducts(@PathVariable Long id, @RequestBody Song requestBodySong) {
+    public Song updateAlbumSongs(@PathVariable Long id, @RequestBody Song requestBodySong) {
         requestBodySong.setId(id);
         return songRepository.save(requestBodySong);
     }

@@ -48,7 +48,7 @@ public class AlbumControllerTest {
     @Test
     public void underTestIsWiredCorrectlyWithoutAnnotations() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
-        mockMvc.perform(get("/albums/"))
+        mockMvc.perform(get("/albums"))
                 .andExpect(status().isOk());
     }
 }
