@@ -8,6 +8,7 @@ import org.wcci.apimastery.Model.Artist;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
 import org.wcci.apimastery.Storages.ArtistStorage;
+import org.wcci.apimastery.Storages.Repositories.SongRepository;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -21,6 +22,7 @@ public class ArtistControllerTest {
 
     private ArtistRepository artistRepository;
     private AlbumRepository albumRepository;
+    private SongRepository songRepository;
     private ArtistController underTest;
     private Artist testArtist;
 
@@ -29,9 +31,9 @@ public class ArtistControllerTest {
         artistRepository = mock(ArtistRepository.class);
 
 
-        underTest = new ArtistController(artistRepository,albumRepository);
+        underTest = new ArtistController(artistRepository,albumRepository,songRepository);
 
-        underTest = new ArtistController(artistRepository, albumRepository);
+        underTest = new ArtistController(artistRepository, albumRepository, songRepository);
 
         testArtist = new Artist("test",20,"test","test");
         when(artistRepository.findAll()).thenReturn(Collections.singletonList(testArtist));

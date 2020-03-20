@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Artist;
+import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
+import org.wcci.apimastery.Storages.Repositories.SongRepository;
 
 
 import java.util.Collection;
@@ -20,12 +22,13 @@ public class ArtistController {
 
 
    private AlbumRepository albumRepository;
-
+    private SongRepository songRepository;
     private ArtistRepository artistRepository;
 
-    public ArtistController(ArtistRepository artistRepository, AlbumRepository albumRepository) {
+    public ArtistController(ArtistRepository artistRepository, AlbumRepository albumRepository, SongRepository songRepository) {
         this.artistRepository = artistRepository;
         this.albumRepository = albumRepository;
+        this.songRepository = songRepository;
     }
 
     @GetMapping("")
@@ -44,8 +47,14 @@ public class ArtistController {
         Artist artistToRemove = artistRepository.findById(id).get();
 
         for (Album albumToRemove : artistToRemove.getAlbums()) {
+            for(Song songToRemove: albumToRemove.getSongs()) {
+                songRepository.delete(songToRemove);
+
+            }
             albumRepository.delete(albumToRemove);
         }
+
+
         artistRepository.deleteById(id);
     }
 
