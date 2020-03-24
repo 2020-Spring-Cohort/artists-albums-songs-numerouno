@@ -25,8 +25,8 @@ const body = document.querySelector("body");
 const displayHome = () => {
 
     const container = document.querySelector('.container');
-
-    container.appendChild(renderHeader());
+    const mainSection = document.querySelector('.main');
+    container.prepend(renderHeader());
     container.appendChild(renderFooter());
     renderArtist();
     renderSongs();
