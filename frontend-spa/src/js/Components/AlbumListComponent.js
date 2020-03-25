@@ -19,7 +19,7 @@ const renderAlbum = () => {
 
 
 
-    fetch('http://localhost:8080/albums')
+    fetch('http://localhost:8080/artists/')
         .then(reponse => reponse.json())
         .then(albums => {
 

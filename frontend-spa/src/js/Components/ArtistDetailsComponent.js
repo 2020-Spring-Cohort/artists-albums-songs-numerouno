@@ -1,5 +1,10 @@
-const renderArtistDetails = (artist) => {
+import {
+    renderAlbumDetails
+} from './AlbumDetailsComponent.js';
 
+const artistListElement = document.querySelector('.main');
+
+const renderArtistDetails = (artist) => {
     const artistHolder = document.createElement('div');
     const nameHolder = document.createElement('h3');
     nameHolder.innerText = 'Name';
@@ -18,18 +23,31 @@ const renderArtistDetails = (artist) => {
     const artistRecordLabel = document.createElement('h4');
     artistRecordLabel.innerText = artist.recordLabel;
     const albumHolder = document.createElement('ul');
-    artist.albums.forEach(album => {
+
+    artist.albums.forEach((album) => {
         const singleAlbum = document.createElement('li');
         singleAlbum.innerText = album.title;
         albumHolder.appendChild(singleAlbum);
 
-        singleAlbum.addEventListener('click',)
+        singleAlbum.addEventListener('click', (e) => {
+            e.preventDefault();
+            artistListElement.innerHTML = '';
+            console.log(album);
+            artistListElement.appendChild(renderAlbumDetails(album));
+
+
+            /*  `
+            <h3>${album.title}</h3>
+            <h3>${album.recordLabel}</h3>
+            <h3>${album.image}</h3>
+            <h3>${album.artist}</h3>
+            `;
+*/
+
+
+        });
+
     });
-
-
-
-
-
 
     artistHolder.appendChild(nameHolder);
     artistHolder.appendChild(artistName);
@@ -42,8 +60,8 @@ const renderArtistDetails = (artist) => {
     artistHolder.appendChild(albumHolder);
 
     return artistHolder;
-}
+};
 
 export {
     renderArtistDetails
-}
+};

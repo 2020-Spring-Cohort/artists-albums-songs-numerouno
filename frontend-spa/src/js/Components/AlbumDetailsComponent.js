@@ -1,4 +1,5 @@
 const renderAlbumDetails = (album) => {
+
     const albumHolder = document.createElement('div');
     const titleHolder = document.createElement('h3');
     titleHolder.innerText = "Title";
@@ -13,7 +14,7 @@ const renderAlbumDetails = (album) => {
     const albumImage = document.createElement('h2');
     albumImage.innerText = album.image;
     const artistHolder = document.createElement('h3');
-    artistlHolder.innerText = 'Artist';
+    artistHolder.innerText = 'Artist';
     const albumArtist = document.createElement('h3');
     albumArtist.innerText = album.artist;
     const songHolder = document.createElement('ul');
@@ -33,10 +34,10 @@ const renderAlbumDetails = (album) => {
     albumHolder.appendChild(albumArtist);
     albumHolder.appendChild(songHolder);
 
+
     return albumHolder;
 }
 
 export {
     renderAlbumDetails
 }
-
