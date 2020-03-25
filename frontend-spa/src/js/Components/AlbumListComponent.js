@@ -6,6 +6,10 @@ import {
     renderAlbumDetails
 } from './AlbumDetailsComponent.js';
 
+import{
+    renderNewAlbumForm
+}from './AlbumFormComponent.js';
+
 const albumListElement = document.querySelector('.main');
 
 

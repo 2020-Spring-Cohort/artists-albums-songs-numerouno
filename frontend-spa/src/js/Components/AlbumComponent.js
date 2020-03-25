@@ -1,3 +1,7 @@
+// import {
+//     renderAlbum
+// } from './AlbumListComponent.js';
+
 const createAlbumView = (album) => {
     const albumView = document.createElement('div');
     albumView.classList.add('single-album');
@@ -34,7 +38,20 @@ const addDeleteTag = (album, element) => {
     iTag.classList.add('fa-trash-alt');
     iTag.classList.add('fdelete');
     iTag.innerText = "";
-    iTag.setAttribute('title', album.id);
+    iTag.setAttribute('albumId', album.id);
+    element.appendChild(iTag);
+
+    iTag.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+
+        fetch(`http://localhost:8080/album/${album.id}`, {
+            method: 'DELETE',
+        }).then(() => renderAlbum());
+        console.log(`${album.id}`);
+
+    });
+
     element.appendChild(iTag);
 }
 
