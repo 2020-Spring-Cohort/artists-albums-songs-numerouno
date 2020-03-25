@@ -1,3 +1,9 @@
+import {
+    renderArtist
+} from './ArtistListComponent.js';
+
+
+
 const createArtistView = (artist) => {
     const artistView = document.createElement('div');
     artistView.classList.add('single-artist');
@@ -5,9 +11,13 @@ const createArtistView = (artist) => {
     addEditTag(artist, artistView);
     addDeleteTag(artist, artistView);
 
+
     return artistView;
 
 }
+
+
+
 
 
 
@@ -36,7 +46,20 @@ const addDeleteTag = (artist, element) => {
     iTag.classList.add('fa-trash-alt');
     iTag.classList.add('fdelete');
     iTag.innerText = "";
-    iTag.setAttribute('name', artist.id);
+    iTag.setAttribute('artistId', artist.id);
+
+
+    iTag.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+
+        fetch(`http://localhost:8080/artists/${artist.id}`, {
+            method: 'DELETE',
+        }).then(() => renderArtist());
+        console.log(`${artist.id}`);
+
+    });
+
     element.appendChild(iTag);
 }
 

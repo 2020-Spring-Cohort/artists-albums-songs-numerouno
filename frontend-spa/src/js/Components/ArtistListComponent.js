@@ -6,6 +6,10 @@ import {
     renderArtistDetails
 } from './ArtistDetailsComponent.js';
 
+import {
+    renderNewArtsitForm
+} from './ArtistFormComponent.js';
+
 const artistListElement = document.querySelector('.main');
 
 
@@ -38,7 +42,7 @@ const renderArtist = () => {
                 });
                 artistListElement.appendChild(singleArtist);
             });
-
+            artistListElement.appendChild(renderNewArtsitForm());
         })
         .catch(err => console.error(err));
     return artistListElement;
