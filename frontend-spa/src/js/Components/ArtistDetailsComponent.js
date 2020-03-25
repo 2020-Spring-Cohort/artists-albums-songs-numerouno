@@ -22,6 +22,8 @@ const renderArtistDetails = (artist) => {
         const singleAlbum = document.createElement('li');
         singleAlbum.innerText = album.title;
         albumHolder.appendChild(singleAlbum);
+
+        singleAlbum.addEventListener('click',)
     });
 
 
