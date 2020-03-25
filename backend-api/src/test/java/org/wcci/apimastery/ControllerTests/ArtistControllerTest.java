@@ -7,7 +7,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.wcci.apimastery.Model.Artist;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
-import org.wcci.apimastery.Storages.ArtistStorage;
 import org.wcci.apimastery.Storages.Repositories.SongRepository;
 
 import java.util.Collection;

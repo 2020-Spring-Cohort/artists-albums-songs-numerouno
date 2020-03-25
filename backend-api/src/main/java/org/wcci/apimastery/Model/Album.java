@@ -14,7 +14,7 @@ public class Album {
    private String image;
 
 
-//    @JsonIgnore
+
     @OneToMany (mappedBy ="album")
     private Collection<Song> songs;
     private String recordLabel;
