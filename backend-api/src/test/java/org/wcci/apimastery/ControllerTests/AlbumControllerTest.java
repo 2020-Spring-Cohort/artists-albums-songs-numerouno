@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.wcci.apimastery.Controllers.AlbumController;
 import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Model.Artist;
@@ -21,7 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class AlbumControllerTest {
     private SongRepository songRepository;
     private AlbumRepository albumRepository;
-    private AlbumStorage albumStorage;
     private AlbumController underTest;
     private Album testAlbum;
 
