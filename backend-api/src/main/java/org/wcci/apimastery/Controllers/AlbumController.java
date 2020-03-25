@@ -1,15 +1,11 @@
-package org.wcci.apimastery.ControllerTests;
+package org.wcci.apimastery.Controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Song;
-import org.wcci.apimastery.Storages.AlbumStorage;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
-import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
 import org.wcci.apimastery.Storages.Repositories.SongRepository;
 
-import javax.tools.FileObject;
 import java.util.Collection;
 
 @RestController

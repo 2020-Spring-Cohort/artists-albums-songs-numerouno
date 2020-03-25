@@ -1,10 +1,5 @@
-package org.wcci.apimastery.ControllerTests;
+package org.wcci.apimastery.Controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Artist;
@@ -12,7 +7,6 @@ import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.ArtistRepository;
 import org.wcci.apimastery.Storages.Repositories.SongRepository;
-
 
 import java.util.Collection;
 
@@ -71,11 +65,7 @@ public class ArtistController {
         return artistRepository.save(artistToPatch);
     }
 
-//    @PutMapping("/{id}")
-//    public Artist editArtist(@PathVariable Long id,@RequestBody Artist requestBodyArtist) {
-//        requestBodyArtist = artistRepository.findById(id).get();
-//        return artistRepository.save(requestBodyArtist);
-//    }
+
 
 }
 

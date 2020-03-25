@@ -7,5 +7,5 @@ import org.wcci.apimastery.Model.Artist;
 import java.util.Optional;
 
 public interface AlbumRepository extends CrudRepository<Album, Long> {
-//    Optional<Album> findByName(String name);
+
 }
