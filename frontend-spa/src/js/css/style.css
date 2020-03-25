@@ -274,7 +274,10 @@
     background-color: rgb(233, 123, 123);
     color: #fff;
 }
+.header {
 
+    display: grid;
+    place-items: center;
 /* .songs__list__single .fdelete {
     padding: 0.5p;
 } */

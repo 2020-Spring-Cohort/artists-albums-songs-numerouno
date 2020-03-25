@@ -1,3 +1,8 @@
+import {
+    renderSongDetails
+} from './songDetailsComponent.js';
+
+const songElement = document.querySelector('.main');
 const renderAlbumDetails = (album) => {
 
     const albumHolder = document.createElement('div');
@@ -13,15 +18,20 @@ const renderAlbumDetails = (album) => {
     imageHolder.innerText = 'Image';
     const albumImage = document.createElement('h2');
     albumImage.innerText = album.image;
-    const artistHolder = document.createElement('h3');
-    artistHolder.innerText = 'Artist';
-    const albumArtist = document.createElement('h3');
-    albumArtist.innerText = album.artist;
+
     const songHolder = document.createElement('ul');
-    albums.songs.forEach(song => {
+    album.songs.forEach(song => {
         const singleSong = document.createElement('li');
         singleSong.innerText = song.title;
         songHolder.appendChild(singleSong);
+
+        singleSong.addEventListener('click', (e) => {
+            e.preventDefault();
+            while (songElement.firstChild) {
+                songElement.removeChild(songElement.firstChild);
+            }
+            songElement.appendChild(renderSongDetails(song));
+        })
     });
 
     albumHolder.appendChild(titleHolder);
@@ -30,8 +40,7 @@ const renderAlbumDetails = (album) => {
     albumHolder.appendChild(albumRecordLabel);
     albumHolder.appendChild(imageHolder);
     albumHolder.appendChild(albumImage);
-    albumHolder.appendChild(artistlHolder);
-    albumHolder.appendChild(albumArtist);
+
     albumHolder.appendChild(songHolder);
 
 
