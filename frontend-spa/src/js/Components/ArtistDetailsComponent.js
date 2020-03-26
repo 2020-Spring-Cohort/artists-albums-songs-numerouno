@@ -1,6 +1,9 @@
 import {
     renderAlbumDetails
 } from './AlbumDetailsComponent.js';
+import {
+    renderNewAlbumForm
+} from './AlbumFormComponent.js';
 
 const artistListElement = document.querySelector('.main');
 
@@ -29,20 +32,15 @@ const renderArtistDetails = (artist) => {
         singleAlbum.innerText = album.title;
         albumHolder.appendChild(singleAlbum);
 
+
+
+
+
         singleAlbum.addEventListener('click', (e) => {
             e.preventDefault();
             artistListElement.innerHTML = '';
-            console.log(album);
+
             artistListElement.appendChild(renderAlbumDetails(album));
-
-
-            /*  `
-            <h3>${album.title}</h3>
-            <h3>${album.recordLabel}</h3>
-            <h3>${album.image}</h3>
-            <h3>${album.artist}</h3>
-            `;
-*/
 
 
         });
@@ -58,6 +56,8 @@ const renderArtistDetails = (artist) => {
     artistHolder.appendChild(recordLabelHolder);
     artistHolder.appendChild(artistRecordLabel);
     artistHolder.appendChild(albumHolder);
+
+    artistHolder.appendChild(renderNewAlbumForm(artist));
 
     return artistHolder;
 };

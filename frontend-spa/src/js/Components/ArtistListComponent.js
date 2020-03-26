@@ -29,7 +29,7 @@ const renderArtist = () => {
         .then(response => response.json())
         .then(artists => {
             artists.forEach(artist => {
-                console.log(artist);
+
                 const singleArtist = createArtistView(artist);
                 singleArtist.addEventListener('click', (e) => {
                     e.preventDefault();

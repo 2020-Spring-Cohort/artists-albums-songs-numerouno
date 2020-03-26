@@ -6,9 +6,9 @@ import {
     renderAlbumDetails
 } from './AlbumDetailsComponent.js';
 
-import{
+import {
     renderNewAlbumForm
-}from './AlbumFormComponent.js';
+} from './AlbumFormComponent.js';
 
 const albumListElement = document.querySelector('.main');
 
@@ -28,7 +28,7 @@ const renderAlbum = () => {
         .then(albums => {
 
             albums.forEach(album => {
-                console.log(album);
+
                 const singleAlbum = createAlbumView(album);
                 singleAlbum.addEventListener('click', (e) => {
                     e.preventDefault();

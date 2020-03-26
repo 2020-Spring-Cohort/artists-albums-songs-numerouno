@@ -1,10 +1,10 @@
 import {
-    renderAlbum
-} from './AlbumListComponent.js';
+    renderArtistDetails
+} from './ArtistDetailsComponent.js';
 
+const artistListElement = document.querySelector('.main');
 
-
-const renderNewAlbumForm = () => {
+const renderNewAlbumForm = (artist) => {
 
     const title = document.createElement('p');
     title.innerText = 'Add a new Album';
@@ -15,8 +15,6 @@ const renderNewAlbumForm = () => {
     albumRecordLabel.setAttribute('placeholder', 'Record Label');
     const albumImage = document.createElement('input');
     albumImage.setAttribute('placeholder', 'Album Image');
-    const albumArtist = document.createElement('input');
-    albumArtist.setAttribute('placeholder', 'Album Artist');
 
     const submitBtn = document.createElement('button');
     submitBtn.innerText = 'Save';
@@ -24,33 +22,49 @@ const renderNewAlbumForm = () => {
     title.appendChild(albumTitle);
     title.appendChild(albumRecordLabel);
     title.appendChild(albumImage);
-    title.appendChild(albumArtist);
     title.appendChild(submitBtn);
 
-    submitBtn.addEventListener('click', () => {
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         collectData();
-    })
+        while (artistListElement.firstChild) {
+            artistListElement.removeChild(artistListElement.firstChild);
+
+        }
+
+    });
 
     const collectData = () => {
 
-        const artist = {
-            "Title": albumTitle.value,
+        const album = {
+            "title": albumTitle.value,
             "recordLabel": albumRecordLabel.value,
             "image": albumImage.value,
-            "artist": albumArtist.value
-        }
-        fetch('http://localhost:8080/albums', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(album)
-        }).then(() => renderAlbum());
-    }
+            "artist": {
+                "name": artist.name,
+                "age": artist.age,
+                "homeTown": artist.homeTown,
+                "recordLabel": artist.recordLabel
+            }
+
+        };
+        fetch(`http://localhost:8080/artists/${artist.id}/albums`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(album)
+            }).then(() => {
+                artistListElement.appendChild(renderArtistDetails(artist));
+            })
+
+            .catch(err => console.error(err));
+
+    };
 
     return title;
-}
+};
 
-export{
+export {
     renderNewAlbumForm
 }

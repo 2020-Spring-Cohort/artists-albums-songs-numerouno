@@ -3,12 +3,12 @@ import {
 } from './SongComponent.js';
 
 const renderSongs = () => {
-    const songList = document.querySelector('.songs');
+    const songListElement = document.querySelector('.main');
 
     const title = document.createElement('div');
     title.classList.add('songs__title');
     title.innerHTML = `<h2>Songs</h2>`;
-    songList.appendChild(title);
+    songListElement.appendChild(title);
     const addButton = document.createElement('a');
     addButton.classList.add('add-song');
     addButton.innerText = 'Add New Song';
@@ -17,10 +17,10 @@ const renderSongs = () => {
           formelement.style.transform = "translate(600px)";*/
     });
 
-    songList.appendChild(addButton);
+    songListElement.appendChild(addButton);
     const songListHolder = document.createElement('div');
     songListHolder.classList.add('songs__list');
-    songList.appendChild(songListHolder);
+    songListElement.appendChild(songListHolder);
 
 
     fetch('http://localhost:8080/songs')
@@ -34,7 +34,7 @@ const renderSongs = () => {
 
         }).catch(err => console.error(err));
 
-    return songList;
+    return songListElement;
 
 }
 
