@@ -5,9 +5,15 @@ import {
     renderNewAlbumForm
 } from './AlbumFormComponent.js';
 
+
+
 const artistListElement = document.querySelector('.main');
 
 const renderArtistDetails = (artist) => {
+    console.log(artist)
+    while(artistListElement.firstChild) {
+        artistListElement.removeChild(artistListElement.firstChild)
+    }
     const artistHolder = document.createElement('div');
     const nameHolder = document.createElement('h3');
     nameHolder.innerText = 'Name';
@@ -37,6 +43,13 @@ const renderArtistDetails = (artist) => {
 
         deleteBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+
+            fetch(`http://localhost:8080/albums/${album.id}`, {
+                method: 'DELETE',
+            }).then(response => response.json())
+              .then(artistjson => artistListElement.appendChild(renderArtistDetails(artistjson)))
+              
+            console.log(`${album.id}`);
 
 
         })

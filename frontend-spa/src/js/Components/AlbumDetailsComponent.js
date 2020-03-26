@@ -7,8 +7,12 @@ import {
 } from './SongFormComponent.js';
 
 
-const songElement = document.querySelector('.main');
+const albumListElement = document.querySelector('.main');
 const renderAlbumDetails = (album) => {
+    console.log(album)
+    while(albumListElement.firstChild) {
+        albumListElement.removeChild(albumListElement.firstChild)
+    }
 
     const albumHolder = document.createElement('div');
     const titleHolder = document.createElement('h3');
@@ -23,13 +27,32 @@ const renderAlbumDetails = (album) => {
     imageHolder.innerText = 'Image';
     const albumImage = document.createElement('h2');
     albumImage.innerText = album.image;
-
     const songHolder = document.createElement('ul');
+
     if (album.songs) {
         album.songs.forEach(song => {
             const singleSong = document.createElement('li');
             singleSong.innerText = song.title;
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerText = 'Delete';
+            singleSong.appendChild(deleteBtn);
             songHolder.appendChild(singleSong);
+
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+    
+                fetch(`http://localhost:8080/songs/${song.id}`, {
+                method: 'DELETE',
+            }).then(response => response.json())
+              .then(albumjson => albumListElement.appendChild(renderAlbumDetails(albumjson)))
+              
+            console.log(`${song.id}`);
+
+
+        
+    
+    
+            })
 
             singleSong.addEventListener('click', (e) => {
                 e.preventDefault();
