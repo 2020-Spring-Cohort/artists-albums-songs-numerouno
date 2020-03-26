@@ -1,8 +1,12 @@
 import {
-    renderSong
-} from './SongListComponent.js' ;
+    renderSongs
+} from './SongListComponent.js';
+import {
+    renderAlbumDetails
+} from './AlbumDetailsComponent.js';
 
-const renderNewSongForm = () => {
+const artistListElement = document.querySelector('.main');
+const renderNewSongForm = (album) => {
 
     const title = document.createElement('p');
     title.innerText = 'Add a New Song';
@@ -18,31 +22,36 @@ const renderNewSongForm = () => {
     title.appendChild(songTitle);
     title.appendChild(songDuration);
     title.appendChild(submitBtn);
-   
-   
+
+
     submitBtn.addEventListener('click', () => {
         collectData();
+        while (artistListElement.firstChild) {
+            artistListElement.removeChild(artistListElement.firstChild)
+        }
     })
 
     const collectData = () => {
 
-    const song = {
+        const song = {
 
-        "title": songTitle.value,
-        "duration": songDuration.value
-         
-    }
+            "title": songTitle.value,
+            "duration": songDuration.value
 
-    fetch('http://localhost:8080/songs', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(artist)
-        }).then(() => renderSong());
+        }
+
+        fetch(`http://localhost:8080/albums/${album.id}/songs`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(song)
+            }).then(response => response.json())
+            .then(album => artistListElement.appendChild(renderAlbumDetails(album)))
+            .catch(err => console.eeror(err));
 
 
-    
+
     }
 
 

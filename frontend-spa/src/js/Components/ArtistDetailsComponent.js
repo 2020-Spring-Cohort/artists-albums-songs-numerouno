@@ -30,18 +30,25 @@ const renderArtistDetails = (artist) => {
     artist.albums.forEach((album) => {
         const singleAlbum = document.createElement('li');
         singleAlbum.innerText = album.title;
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerText = 'Delete';
+        singleAlbum.appendChild(deleteBtn);
         albumHolder.appendChild(singleAlbum);
 
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
 
 
-
+        })
 
         singleAlbum.addEventListener('click', (e) => {
             e.preventDefault();
-            artistListElement.innerHTML = '';
-
+            console.log('test');
+            console.log(album);
+            while (artistListElement.firstChild) {
+                artistListElement.removeChild(artistListElement.firstChild);
+            }
             artistListElement.appendChild(renderAlbumDetails(album));
-
 
         });
 

@@ -5,15 +5,15 @@
 const createAlbumView = (album) => {
     const albumView = document.createElement('div');
     albumView.classList.add('single-album');
-    appendAlbumTitle(album,albumView);
-    addEditTag(album,albumView);
-    addDeleteTag(album,albumView);
+    appendAlbumTitle(album, albumView);
+    addEditTag(album, albumView);
+    addDeleteTag(album, albumView);
 
     return albumView;
 }
 
 
-const appendAlbumTitle = (album,element) => {
+const appendAlbumTitle = (album, element) => {
     const albumTitle = document.createElement('a');
     albumTitle.innerText = `{album.title}`;
     element.appendChild(albumTitle);
@@ -47,8 +47,8 @@ const addDeleteTag = (album, element) => {
 
         fetch(`http://localhost:8080/album/${album.id}`, {
             method: 'DELETE',
-        }).then(() => renderAlbum());
-        console.log(`${album.id}`);
+        }).then(() => renderAlbum(artist));
+
 
     });
 
@@ -58,4 +58,3 @@ const addDeleteTag = (album, element) => {
 export {
     createAlbumView
 }
-
