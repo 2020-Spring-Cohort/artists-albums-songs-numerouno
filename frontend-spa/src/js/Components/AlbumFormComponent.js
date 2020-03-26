@@ -1,10 +1,10 @@
 import {
-    renderAlbum
-} from './AlbumListComponent.js';
+    renderArtistDetails
+} from './ArtistDetailsComponent.js';
 
 
 
-const renderNewAlbumForm = () => {
+const renderNewAlbumForm = (artist) => {
 
     const title = document.createElement('p');
     title.innerText = 'Add a new Album';
@@ -15,8 +15,8 @@ const renderNewAlbumForm = () => {
     albumRecordLabel.setAttribute('placeholder', 'Record Label');
     const albumImage = document.createElement('input');
     albumImage.setAttribute('placeholder', 'Album Image');
-    const albumArtist = document.createElement('input');
-    albumArtist.setAttribute('placeholder', 'Album Artist');
+    /*  const albumArtist = document.createElement('input');
+      albumArtist.setAttribute('placeholder', 'Album Artist');*/
 
     const submitBtn = document.createElement('button');
     submitBtn.innerText = 'Save';
@@ -24,33 +24,41 @@ const renderNewAlbumForm = () => {
     title.appendChild(albumTitle);
     title.appendChild(albumRecordLabel);
     title.appendChild(albumImage);
-    title.appendChild(albumArtist);
+    /* title.appendChild(albumArtist);*/
     title.appendChild(submitBtn);
 
     submitBtn.addEventListener('click', () => {
         collectData();
-    })
+
+    });
 
     const collectData = () => {
 
-        const artist = {
-            "Title": albumTitle.value,
+        const album = {
+            "title": albumTitle.value,
             "recordLabel": albumRecordLabel.value,
             "image": albumImage.value,
-            "artist": albumArtist.value
-        }
-        fetch('http://localhost:8080/albums', {
-            method: 'POST',
+            "artist": {
+                "name": artist.name,
+                "age": artist.age,
+                "homeTown": artist.homeTown,
+                "recordLabel": artist.recordLabel
+            }
+
+        };
+        fetch(`http://localhost:8080/artists/${artist.id}/albums`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(album)
-        }).then(() => renderAlbum());
+        }).then(() => renderArtistDetails(artist));
+
     }
 
     return title;
 }
 
-export{
+export {
     renderNewAlbumForm
 }
