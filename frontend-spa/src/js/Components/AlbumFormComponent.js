@@ -2,7 +2,7 @@ import {
     renderArtistDetails
 } from './ArtistDetailsComponent.js';
 
-
+const artistListElement = document.querySelector('.main');
 
 const renderNewAlbumForm = (artist) => {
 
@@ -15,8 +15,6 @@ const renderNewAlbumForm = (artist) => {
     albumRecordLabel.setAttribute('placeholder', 'Record Label');
     const albumImage = document.createElement('input');
     albumImage.setAttribute('placeholder', 'Album Image');
-    /*  const albumArtist = document.createElement('input');
-      albumArtist.setAttribute('placeholder', 'Album Artist');*/
 
     const submitBtn = document.createElement('button');
     submitBtn.innerText = 'Save';
@@ -24,11 +22,15 @@ const renderNewAlbumForm = (artist) => {
     title.appendChild(albumTitle);
     title.appendChild(albumRecordLabel);
     title.appendChild(albumImage);
-    /* title.appendChild(albumArtist);*/
     title.appendChild(submitBtn);
 
-    submitBtn.addEventListener('click', () => {
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         collectData();
+        while (artistListElement.firstChild) {
+            artistListElement.removeChild(artistListElement.firstChild);
+
+        }
 
     });
 
@@ -47,17 +49,21 @@ const renderNewAlbumForm = (artist) => {
 
         };
         fetch(`http://localhost:8080/artists/${artist.id}/albums`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(album)
-        }).then(() => renderArtistDetails(artist));
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(album)
+            }).then(() => {
+                artistListElement.appendChild(renderArtistDetails(artist));
+            })
 
-    }
+            .catch(err => console.error(err));
+
+    };
 
     return title;
-}
+};
 
 export {
     renderNewAlbumForm

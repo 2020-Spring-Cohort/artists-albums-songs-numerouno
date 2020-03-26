@@ -39,7 +39,7 @@ const renderArtistDetails = (artist) => {
         singleAlbum.addEventListener('click', (e) => {
             e.preventDefault();
             artistListElement.innerHTML = '';
-            console.log(album);
+
             artistListElement.appendChild(renderAlbumDetails(album));
 
 
