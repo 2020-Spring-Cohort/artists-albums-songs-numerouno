@@ -2,6 +2,11 @@ import {
     renderSongDetails
 } from './songDetailsComponent.js';
 
+import {
+    renderNewSongForm
+} from './SongFormComponent.js';
+
+
 const songElement = document.querySelector('.main');
 const renderAlbumDetails = (album) => {
 
@@ -20,20 +25,21 @@ const renderAlbumDetails = (album) => {
     albumImage.innerText = album.image;
 
     const songHolder = document.createElement('ul');
-    album.songs.forEach(song => {
-        const singleSong = document.createElement('li');
-        singleSong.innerText = song.title;
-        songHolder.appendChild(singleSong);
+    if (album.songs) {
+        album.songs.forEach(song => {
+            const singleSong = document.createElement('li');
+            singleSong.innerText = song.title;
+            songHolder.appendChild(singleSong);
 
-        singleSong.addEventListener('click', (e) => {
-            e.preventDefault();
-            while (songElement.firstChild) {
-                songElement.removeChild(songElement.firstChild);
-            }
-            songElement.appendChild(renderSongDetails(song));
-        })
-    });
-
+            singleSong.addEventListener('click', (e) => {
+                e.preventDefault();
+                while (songElement.firstChild) {
+                    songElement.removeChild(songElement.firstChild);
+                }
+                songElement.appendChild(renderSongDetails(song));
+            })
+        });
+    }
     albumHolder.appendChild(titleHolder);
     albumHolder.appendChild(albumTitle);
     albumHolder.appendChild(recordLabelHolder);
@@ -42,7 +48,7 @@ const renderAlbumDetails = (album) => {
     albumHolder.appendChild(albumImage);
 
     albumHolder.appendChild(songHolder);
-
+    albumHolder.appendChild(renderNewSongForm(album));
 
     return albumHolder;
 }

@@ -1,7 +1,7 @@
 import {
     renderArtist
 } from './ArtistListComponent.js';
-
+const artistListElement = document.querySelector('.main');
 const renderNewArtsitForm = () => {
 
     const title = document.createElement('p');

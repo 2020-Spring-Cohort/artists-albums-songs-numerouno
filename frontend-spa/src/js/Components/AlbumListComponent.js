@@ -6,9 +6,7 @@ import {
     renderAlbumDetails
 } from './AlbumDetailsComponent.js';
 
-import {
-    renderNewAlbumForm
-} from './AlbumFormComponent.js';
+
 
 const albumListElement = document.querySelector('.main');
 
@@ -23,10 +21,10 @@ const renderAlbum = () => {
 
 
 
-    fetch('http://localhost:8080/artists/')
+    fetch('http://localhost:8080/artists')
         .then(reponse => reponse.json())
         .then(albums => {
-
+            console.log(albums);
             albums.forEach(album => {
 
                 const singleAlbum = createAlbumView(album);
@@ -44,6 +42,7 @@ const renderAlbum = () => {
 
         })
         .catch(err => console.error(err));
+
     return albumListElement;
 
 }

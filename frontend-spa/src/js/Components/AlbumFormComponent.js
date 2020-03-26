@@ -54,10 +54,10 @@ const renderNewAlbumForm = (artist) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(album)
-            }).then(() => {
-                artistListElement.appendChild(renderArtistDetails(artist));
+            }).then(response => response.json())
+            .then(artistJson => {
+                artistListElement.appendChild(renderArtistDetails(artistJson));
             })
-
             .catch(err => console.error(err));
 
     };
