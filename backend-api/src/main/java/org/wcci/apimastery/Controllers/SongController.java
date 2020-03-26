@@ -1,6 +1,7 @@
 package org.wcci.apimastery.Controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.Storages.Repositories.AlbumRepository;
 import org.wcci.apimastery.Storages.Repositories.SongRepository;
@@ -32,8 +33,11 @@ public class SongController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSongs(@PathVariable Long id) {
+    public Album deleteSongs(@PathVariable Long id) {
+        Song songToDelete = songRepository.findById(id).get();
         songRepository.deleteById(id);
+
+        return songToDelete.getAlbum();
 
     }
 
