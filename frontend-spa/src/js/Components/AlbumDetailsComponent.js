@@ -10,24 +10,26 @@ import {
 const albumListElement = document.querySelector('.main');
 const renderAlbumDetails = (album) => {
     console.log(album)
-    while(albumListElement.firstChild) {
+    while (albumListElement.firstChild) {
         albumListElement.removeChild(albumListElement.firstChild)
     }
 
     const albumHolder = document.createElement('div');
+    albumHolder.classList.add('singleArtist');
     const titleHolder = document.createElement('h3');
     titleHolder.innerText = "Title";
-    const albumTitle = document.createElement('h3');
+    const albumTitle = document.createElement('span');
     albumTitle.innerText = album.title;
     const recordLabelHolder = document.createElement('h3');
     recordLabelHolder.innerText = 'Record Label';
-    const albumRecordLabel = document.createElement('h3');
+    const albumRecordLabel = document.createElement('span');
     albumRecordLabel.innerText = album.recordLabel;
-    const imageHolder = document.createElement('h2');
+    const imageHolder = document.createElement('h3');
     imageHolder.innerText = 'Image';
-    const albumImage = document.createElement('h2');
+    const albumImage = document.createElement('span');
     albumImage.innerText = album.image;
-    const songHolder = document.createElement('ul');
+    const songHolder = document.createElement('ol');
+    songHolder.innerText = 'List of Songs';
 
     if (album.songs) {
         album.songs.forEach(song => {
@@ -40,18 +42,18 @@ const renderAlbumDetails = (album) => {
 
             deleteBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-    
+
                 fetch(`http://localhost:8080/songs/${song.id}`, {
-                method: 'DELETE',
-            }).then(response => response.json())
-              .then(albumjson => albumListElement.appendChild(renderAlbumDetails(albumjson)))
-              
-            console.log(`${song.id}`);
+                        method: 'DELETE',
+                    }).then(response => response.json())
+                    .then(albumjson => albumListElement.appendChild(renderAlbumDetails(albumjson)))
+
+                console.log(`${song.id}`);
 
 
-        
-    
-    
+
+
+
             })
 
             singleSong.addEventListener('click', (e) => {

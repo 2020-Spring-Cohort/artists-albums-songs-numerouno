@@ -7,6 +7,7 @@ const artistListElement = document.querySelector('.main');
 const renderNewAlbumForm = (artist) => {
 
     const title = document.createElement('p');
+    title.classList.add('newAlbumTitle');
     title.innerText = 'Add a new Album';
 
     const albumTitle = document.createElement('input');

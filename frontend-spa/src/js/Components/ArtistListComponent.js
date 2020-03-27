@@ -19,7 +19,9 @@ const renderArtist = () => {
     artistListElement.innerHTML = '';
     const title = document.createElement('div');
     title.classList.add('artist__title');
-    title.innerHTML = `<h2>Artists</h2>`;
+    const titleText = document.createElement('h2');
+    titleText.innerText = 'Artists';
+    title.appendChild(titleText)
     artistListElement.appendChild(title);
 
 

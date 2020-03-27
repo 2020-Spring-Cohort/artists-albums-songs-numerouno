@@ -6,6 +6,8 @@ const renderNewArtsitForm = () => {
 
     const title = document.createElement('p');
     title.innerText = 'Add a New Artist';
+    title.classList.add('artistForm');
+
 
     const artistName = document.createElement('input');
     artistName.setAttribute('placeholder', 'Artist Name');

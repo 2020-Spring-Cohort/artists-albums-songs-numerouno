@@ -13,7 +13,9 @@ import {
 import {
     renderSongs
 } from './SongListComponent.js';
-import { renderAlbum } from './AlbumListComponent.js';
+import {
+    renderAlbum
+} from './AlbumListComponent.js';
 
 const addSongBtn = document.querySelector(".add-song");
 const formelement = document.querySelector(".song-form");
