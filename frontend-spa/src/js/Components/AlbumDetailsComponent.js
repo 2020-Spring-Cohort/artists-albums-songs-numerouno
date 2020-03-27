@@ -56,10 +56,10 @@ const renderAlbumDetails = (album) => {
 
             singleSong.addEventListener('click', (e) => {
                 e.preventDefault();
-                while (songElement.firstChild) {
-                    songElement.removeChild(songElement.firstChild);
+                while (albumListElement.firstChild) {
+                    albumListElement.removeChild(albumListElement.firstChild);
                 }
-                songElement.appendChild(renderSongDetails(song));
+                albumListElement.appendChild(renderSongDetails(song));
             })
         });
     }
