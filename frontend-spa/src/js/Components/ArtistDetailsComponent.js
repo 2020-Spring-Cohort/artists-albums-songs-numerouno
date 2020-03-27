@@ -11,27 +11,29 @@ const artistListElement = document.querySelector('.main');
 
 const renderArtistDetails = (artist) => {
     console.log(artist)
-    while(artistListElement.firstChild) {
+    while (artistListElement.firstChild) {
         artistListElement.removeChild(artistListElement.firstChild)
     }
     const artistHolder = document.createElement('div');
+    artistHolder.classList.add('singleArtist');
     const nameHolder = document.createElement('h3');
-    nameHolder.innerText = 'Name';
-    const artistName = document.createElement('h4');
+    nameHolder.innerText = 'Name:';
+    const artistName = document.createElement('span');
     artistName.innerText = artist.name;
     const ageHolder = document.createElement('h3');
-    ageHolder.innerText = 'Age';
-    const artistAge = document.createElement('h4');
+    ageHolder.innerText = 'Age:';
+    const artistAge = document.createElement('span');
     artistAge.innerText = artist.age;
     const homeTownHolder = document.createElement('h3');
-    homeTownHolder.innerText = 'Hometown';
-    const artistHomeTown = document.createElement('h4');
+    homeTownHolder.innerText = 'Hometown:';
+    const artistHomeTown = document.createElement('span');
     artistHomeTown.innerText = artist.homeTown;
     const recordLabelHolder = document.createElement('h3');
-    recordLabelHolder.innerText = 'Record Label';
-    const artistRecordLabel = document.createElement('h4');
+    recordLabelHolder.innerText = 'Record Label:';
+    const artistRecordLabel = document.createElement('span');
     artistRecordLabel.innerText = artist.recordLabel;
-    const albumHolder = document.createElement('ul');
+    const albumHolder = document.createElement('ol');
+    albumHolder.innerText = 'List of Albums';
 
     artist.albums.forEach((album) => {
         const singleAlbum = document.createElement('li');
@@ -45,10 +47,10 @@ const renderArtistDetails = (artist) => {
             e.stopPropagation();
 
             fetch(`http://localhost:8080/albums/${album.id}`, {
-                method: 'DELETE',
-            }).then(response => response.json())
-              .then(artistjson => artistListElement.appendChild(renderArtistDetails(artistjson)))
-              
+                    method: 'DELETE',
+                }).then(response => response.json())
+                .then(artistjson => artistListElement.appendChild(renderArtistDetails(artistjson)))
+
             console.log(`${album.id}`);
 
 

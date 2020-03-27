@@ -9,6 +9,7 @@ const artistListElement = document.querySelector('.main');
 const renderNewSongForm = (album) => {
 
     const title = document.createElement('p');
+    title.classList.add('songFormTitle');
     title.innerText = 'Add a New Song';
 
     const songTitle = document.createElement('input');

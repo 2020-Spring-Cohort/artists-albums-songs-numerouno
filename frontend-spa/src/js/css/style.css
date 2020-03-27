@@ -5,13 +5,128 @@
     font-family: 'Fjalla One', sans-serif;
 }
 
-/* index.html */
-.main-container {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
 
 }
+
+/* index.html */
+.main {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin: 3rem;
+
+}
+
+
+.single-artist {
+
+    margin-bottom: 10px;
+}
+
+.single-artist a {
+
+    font-size: 1.5rem;
+}
+
+
+.artistForm {
+    font-size: 1.5rem;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+input {
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+button {
+    font-size: 1.5rem;
+    width: 4rem;
+    padding: 0.5px;
+}
+
+.artist__title {
+    display: grid;
+    text-align: center;
+}
+
+footer {
+    display: grid;
+    text-align: center;
+}
+
+.singleArtist {
+
+    padding: 2rem;
+    margin: 0 auto;
+
+
+}
+
+.singleArtist h3 {
+    color: #fff;
+    margin-right: 3px;
+    font-size: 1.5rem;
+}
+
+.singleArtist span {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.newAlbumTitle {
+    font-size: 1.5rem;
+}
+
+ol {
+    margin: 1rem;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+ol li {
+    font-size: 1.5rem;
+    margin: 1.3rem;
+    padding: 20px;
+
+}
+
+ol li button {
+    margin-left: 10px;
+}
+
+
+.songFormTitle {
+    font-size: 1.5rem;
+}
+
+
+.singleSong h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.singleSong span {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.singleSong {
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
 
 .left {
     min-height: 100vh;
@@ -38,7 +153,7 @@
 
 .single-artist a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     display: inline-block;
     margin-right: 0.3rem;
 }
@@ -274,14 +389,15 @@
     background-color: rgb(233, 123, 123);
     color: #fff;
 }
+
 .header {
 
     display: grid;
     place-items: center;
-/* .songs__list__single .fdelete {
+    /* .songs__list__single .fdelete {
     padding: 0.5p;
 } */
-/*
+    /*
 title {
     padding: 1rem;
 }

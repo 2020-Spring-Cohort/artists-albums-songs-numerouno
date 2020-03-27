@@ -15,8 +15,10 @@ const renderAlbum = () => {
 
     albumListElement.innerHTML = '';
     const title = document.createElement('div');
-    title.classList.add('artists__albums');
-    title.innerHTML = ` <h5>Album Title</h5>`;
+    title.classList.add('artist__title');
+    const titleText = document.createElement('h1');
+    titleText.innerText = 'Artists';
+    title.appendChild(titleText)
     albumListElement.appendChild(title);
 
 
