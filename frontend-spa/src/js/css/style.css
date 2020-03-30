@@ -1,0 +1,699 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+
+}
+
+/* index.html */
+.main {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin: 3rem;
+
+}
+
+
+.single-artist {
+
+    margin-bottom: 10px;
+}
+
+.single-artist a {
+
+    font-size: 1.5rem;
+}
+
+
+.artistForm {
+    font-size: 1.5rem;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+input {
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+button {
+    font-size: 1.5rem;
+    width: 4rem;
+    padding: 0.5px;
+}
+
+.artist__title {
+    display: grid;
+    text-align: center;
+}
+
+footer {
+    display: grid;
+    text-align: center;
+}
+
+.singleArtist {
+
+    padding: 2rem;
+    margin: 0 auto;
+
+
+}
+
+.singleArtist h3 {
+    color: #fff;
+    margin-right: 3px;
+    font-size: 1.5rem;
+}
+
+.singleArtist span {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.newAlbumTitle {
+    font-size: 1.5rem;
+}
+
+ol {
+    margin: 1rem;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+ol li {
+    font-size: 1.5rem;
+    margin: 1.3rem;
+    padding: 20px;
+
+}
+
+ol li button {
+    margin-left: 10px;
+}
+
+
+.songFormTitle {
+    font-size: 1.5rem;
+}
+
+
+.singleSong h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.singleSong span {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.singleSong {
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+.left {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding-left: 2rem;
+}
+
+.artists {
+    display: grid;
+    grid-template-rows: 4rem auto;
+    align-items: start;
+}
+
+.artist__title {
+    text-align: center;
+    padding: 1rem;
+}
+
+.single-artist i,
+.single-artist a {
+    cursor: pointer;
+}
+
+.single-artist a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 0.3rem;
+}
+
+.single-artist .fedit:hover {
+    color: green;
+}
+
+.single-artist .fdelete:hover {
+    color: red;
+}
+
+.single-artist i {
+    display: inline-block;
+    margin-right: 0.3rem;
+}
+
+.single-artist {
+
+    border: 1px solid rgba(233, 83, 83, 0.867);
+    box-shadow: 0px 0px 3px .7px rgba(233, 83, 83, 0.867);
+    padding: 1rem;
+
+}
+
+.right {
+    min-height: 100vh;
+    display: grid;
+}
+
+.songs {
+    display: grid;
+    grid-template-rows: 4rem auto;
+}
+
+.songs__title {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.songs__title a {
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgb(233, 123, 123);
+
+    line-height: 4rem;
+    color: #000;
+    transition: all 300ms ease-in;
+}
+
+.songs__title a:hover {
+    background-color: rgb(233, 123, 123);
+    color: #fff;
+}
+
+.songs__list__single {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr .5fr .5fr;
+    padding: 1rem;
+    border-bottom: 1px solid rgb(219, 74, 74);
+}
+
+.songs__list__single i {
+    display: block;
+    margin-right: 0.3rem;
+}
+
+.songs__list__song {
+    margin-right: 1rem;
+}
+
+.songs__list__song a {
+    text-decoration: none;
+}
+
+.songs__list__single span {
+    margin-right: 1rem;
+}
+
+.songs__list__single .fedit:hover {
+    color: green;
+}
+
+.songs__list__single .fdelete:hover {
+    color: red;
+}
+
+.songs__list__single i {
+    cursor: pointer;
+}
+
+.artist {
+
+    display: grid;
+    grid-template-rows: 0.7fr 0.3fr .7fr 3fr;
+}
+
+.artist__picture {
+    background-image: url(../images/rih.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10em;
+    width: 20em;
+}
+
+.artists__infos {
+    margin-top: 2em;
+    padding: 1.3em;
+    color: rgb(190, 76, 76);
+    line-height: 2em;
+}
+
+.artists__infos span {
+    margin-left: .5em;
+    color: black;
+}
+
+.artists__albums {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1.3em;
+}
+
+.artists__albums__album {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    width: 10em;
+    height: 10em;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.artists__albums__album__pic {
+    background-image: url(../images/rhi2.jpg);
+    background-size: cover;
+}
+
+.artists__albums__album__title {
+    text-align: center;
+    padding: .5rem;
+}
+
+
+
+
+
+
+
+/*song Form*/
+.song-form {
+    display: grid;
+    grid-gap: 1rem;
+    border: 1px solid aqua;
+    padding: 0.5rem;
+    width: 25rem;
+    position: absolute;
+    top: 25rem;
+    transform: translateX(-400px);
+    transition: all 500ms ease-in-out;
+    background-color: rgb(190, 76, 76);
+
+}
+
+.album-form {
+    display: grid;
+    grid-gap: 1rem;
+    border: 1px solid aqua;
+    padding: 0.5rem;
+    width: 25rem;
+    position: absolute;
+    top: 25rem;
+    left: 0rem;
+    transform: translateX(1700px);
+    transition: all 500ms ease-in-out;
+    background-color: rgb(190, 76, 76);
+
+}
+
+.record-label input,
+.album-picture input {
+    height: 2.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.album-picture input {
+    height: 3rem;
+}
+
+.title input,
+.duration input,
+.submit input {
+    height: 2.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.submit input {
+    padding: 1rem;
+    line-height: 5rem;
+    height: 4rem;
+    width: 7rem;
+
+}
+
+.cancel button {
+
+    font-size: 2rem;
+    padding: 1rem;
+    line-height: 1rem;
+    height: 4rem;
+    width: 7rem;
+}
+
+.add-album {
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgb(233, 123, 123);
+    width: 10rem;
+    padding: 1rem;
+    height: 4rem;
+    color: #000;
+    transition: all 300ms ease-in;
+    margin-left: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.add-album:hover {
+    background-color: rgb(233, 123, 123);
+    color: #fff;
+}
+
+.header {
+
+    display: grid;
+    place-items: center;
+    /* .songs__list__single .fdelete {
+    padding: 0.5p;
+} */
+    /*
+title {
+    padding: 1rem;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+}
+
+.sidebar {
+
+    padding: 1rem;
+    display: grid;
+    line-height: 5rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+.sidebar a:hover {
+    color: maroon;
+}
+
+.slideshow {}
+
+.header {
+
+    display: grid;
+    place-items: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+}
+
+.footer {
+
+    display: grid;
+    place-items: center;
+}
+
+
+/*Artist.html
+
+
+.container__artists {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 7fr 1fr;
+    background-color: ;
+    padding: 1rem;
+}
+
+.title {
+    text-align: center;
+}
+
+.title h3 {
+    font-size: 3rem;
+}
+
+.main .artistsDisplay {
+    display: grid;
+}
+
+.artistsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+
+}
+
+.artist {
+    display: grid;
+    grid-template-columns: 1fr 0.3fr 0.3fr;
+    place-items: center;
+    border: 1px solid blue;
+    height: 5rem;
+    padding: 0.5rem 0;
+}
+
+.edit {
+    display: grid;
+    text-align: right;
+
+}
+
+.edit i:hover {
+    color: rgb(24, 241, 24);
+}
+
+.delete i:hover {
+    color: red;
+}
+
+.delete {
+    display: grid;
+    text-align: left;
+
+}
+
+
+.main__artists {
+    display: grid;
+}
+
+.artist__name a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+
+    height: 4rem;
+    padding: 1rem 2rem;
+    display: block;
+
+
+}
+
+.add {
+    margin-bottom: 1rem;
+    display: grid;
+    justify-content: right;
+    padding-right: 2rem;
+}
+
+.add i {
+    font-size: 3rem;
+    color: blue;
+}
+
+
+/*artist.html
+
+.container__artist {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 7fr 1fr;
+}
+
+.main__artist {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.artistContainer__infos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid green;
+}
+
+.artistContainer__infos .infos {
+    display: grid;
+    grid-gap: 0.5rem;
+    border: 1px solid green;
+}
+
+.artistContainer__infos .picture {
+    border-radius: 50%;
+    height: 60px;
+}
+
+.title h3 {
+    margin-top: 1rem;
+}
+
+.main__artist {
+
+    border: 1px solid red;
+}
+
+.artistContainer {
+    display: grid;
+    border: 1px solid blue;
+    height: 30rem;
+    grid-template-rows: 1fr 6fr 1fr;
+
+}
+
+.artistContainer__infos .albums {
+    display: grid;
+    grid-gap: 0.3rem;
+    place-items: center;
+    border: 1px solid blue;
+}
+
+.artistContainer__infos .albums h3 {
+    font-weight: bolder;
+    font-size: 3rem;
+
+}
+
+.artistContainer__infos .infos h3 {
+    font-weight: bolder;
+    font-size: 3rem;
+
+}
+
+.artistContainer__infos .infos {
+    padding-left: 1rem;
+}
+
+.infos h3 {
+    text-align: center;
+}
+
+.artistContainer__name {
+    display: grid;
+    place-items: center;
+}
+
+.artistContainer__name h2 {
+    font-weight: bolder;
+    font-size: 3rem;
+
+}
+
+.comments {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    height: 30rem;
+}
+
+.rating {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    height: 30rem;
+}
+
+/* Album.html 
+
+.main__album {
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+.album__header {
+    border: 1px solid red;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+place-items: center;
+}
+.album__header__artistName {
+    font-size: xx-large;
+    margin-bottom: 2em;
+    margin-right: 10em;
+color: rgb(0, 0, 0);    
+}
+.album__information {
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+body {
+    height: 100vh;
+}
+.album__header__artistPic {
+border-radius: 50%;
+width: 200px;
+height: 200px;
+background-image: url(../images/rih.jpg);
+background-size: cover;
+border: 1px solid rgb(206, 0, 0);
+box-shadow: 0px 0px 3px 2px rgb(206, 0, 0);
+}
+.album__information__specs {
+    border: 1px solid black;
+line-height: 3em;
+padding-left: .5em ;
+}
+.album__information__specs h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.album__information__specs p {
+    font-size: 25px;
+    font-weight: bolder;
+}
+.album__information__specs p span {
+    font-size: 18px;
+    margin-left: 1em;
+}
+.album__information__songs {
+    border: 1px solid blue;
+}
+.album__information__songs__song {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgb(231, 145, 133);
+    margin: 1rem;
+    padding: .5rem;
+    box-shadow: 0px 0px 3px 2px rgb(231, 145, 133);
+}
+*/
